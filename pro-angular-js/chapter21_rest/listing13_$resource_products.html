@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Products</title>
+
+    <script src="../common/angular.js"></script>
+    <script src="../common/angular-resource.js"></script>
+    <link href="../common/bootstrap.css" rel="stylesheet" />
+    <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="listing14_$resource_products.js"></script>
+</head>
+
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-primary">
+        <h3 class="panel-heading">Products</h3>
+        <ng-include src="'listing03_table_view.html'" ng-show="displayMode == 'list'"></ng-include>
+        <ng-include src="'listing04_editor_view.html'" ng-show="displayMode == 'edit'"></ng-include>
+    </div>
+</body>
+</html>
