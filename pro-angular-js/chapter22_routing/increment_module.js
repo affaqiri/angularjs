@@ -1,4 +1,4 @@
-﻿angular.module("increment", [])
+angular.module("increment", [])
     .directive("increment", function () {
         return {
             restrict: "E",
@@ -20,6 +20,6 @@
                         }
                     })
                 })
-            },
+            }
         }
     });

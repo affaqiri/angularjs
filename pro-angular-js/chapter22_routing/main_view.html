@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Products</title>
+
+    <script src="../common/angular.js"></script>
+    <script src="../common/angular-resource.js"></script>
+    <script src="../common/angular-route.js"></script>
+
+    <link href="../common/bootstrap.css" rel="stylesheet" />
+    <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="increment_module.js"></script>
+    <script src="products.js"></script>
+
+    <base href="/PROANGULARJS/chapter22_routing/" />
+</head>
+
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-primary">
+        <h3 class="panel-heading">Products</h3>
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>
