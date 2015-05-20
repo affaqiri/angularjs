@@ -1,14 +1,17 @@
 /**
- * Created by Deb on 8/21/2014.
+ * The service uses the module ngMockE2E for backend less development
+ * not unit testing which uses the module ngMock.
  */
 (function () {
     "use strict";
 
-    var app = angular
-                .module("productResourceMock",
-                        ["ngMockE2E"]);
+    var app = angular.module("productResourceMock", ["ngMockE2E"]);
 
+    /**
+     * Runs the function passed as parameter when the module is loaded.
+     */
     app.run(function ($httpBackend) {
+
         var products = [
             {
                 "productId": 1,
@@ -76,12 +79,17 @@
 
         $httpBackend.whenGET(productUrl).respond(products);
 
+        /**
+         * For requests to specific product URLs.
+         */
         var editingRegex = new RegExp(productUrl + "/[0-9][0-9]*", '');
+
         $httpBackend.whenGET(editingRegex).respond(function (method, url, data) {
+
             var product = {"productId": 0};
             var parameters = url.split('/');
             var length = parameters.length;
-            var id = parameters[length - 1];
+            var id = parameters[length - 1]; //the last segment is the url parameter corresponding to id of the product.
 
             if (id > 0) {
                 for (var i = 0; i < products.length; i++) {
@@ -101,8 +109,7 @@
                 // new product Id
                 product.productId = products[products.length - 1].productId + 1;
                 products.push(product);
-            }
-            else {
+            } else {
                 // Updated product
                 for (var i = 0; i < products.length; i++) {
                     if (products[i].productId == product.productId) {
@@ -114,9 +121,12 @@
             return [200, product, {}];
         });
 
-        // Pass through any requests for application files
+        /**
+         * Pass through any requests for application files.
+         * Needed because otherwise the $httpBacked mock intercepts all server calls.
+         */
         $httpBackend.whenGET(/app/).passThrough();
 
-
     })
+
 }());
