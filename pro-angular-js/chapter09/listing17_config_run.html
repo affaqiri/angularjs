@@ -2,12 +2,13 @@
 <html ng-app="exampleApp">
 <head>
     <title>AngularJS Demo</title>
+
     <link href="../common/bootstrap.css" rel="stylesheet" />
     <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
     <script src="../common/angular.js"></script>
     <script src="listing14_controllers_module.js"></script>
     <script src="listing15_filters_module.js"></script>
-
     <script>
 
         var myApp = angular.module("exampleApp",
@@ -15,9 +16,11 @@
                 "exampleApp.Services", "exampleApp.Directives"]);
 
         myApp.constant("startTime", new Date().toLocaleTimeString());
+
         myApp.config(function (startTime) {
             console.log("Main module config: " + startTime);
         });
+
         myApp.run(function (startTime) {
             console.log("Main module run: " + startTime);
         });
@@ -48,10 +51,7 @@
             .run(function (startTime) {
                 console.log("Services module run: " + startTime);
             });
-
     </script>
-
-
 </head>
 <body> 
     <div class="panel">
