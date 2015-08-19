@@ -2,9 +2,11 @@
 <html ng-app="exampleApp">
 <head>
     <title>Forms</title>
-    <script src="../common/angular.js"></script>
+
     <link href="../common/bootstrap.css" rel="stylesheet" />
     <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="../common/angular.js"></script>
     <script>
         angular.module("exampleApp", [])
             .controller("defaultCtrl", function ($scope) {
@@ -16,29 +18,26 @@
                     { action: "Call family", complete: false }];
 
                 $scope.addNewItem = function (newItem) {
-                    if (angular.isDefined(newItem) && angular.isDefined(newItem.action)
-                            && angular.isDefined(newItem.location)) {
-
+                    if (angular.isDefined(newItem) &&
+                            angular.isDefined(newItem.action) &&
+                            angular.isDefined(newItem.location)) {
                         $scope.todos.push({
                             action: newItem.action + " (" + newItem.location + ")",
                             complete: false
                         });
                     }
                 };
-
             });
     </script>
 </head>
 <body>
     <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
-
         <h3 class="panel-header">
             To Do List
             <span class="label label-info">
                 {{ (todos | filter: {complete: 'false'}).length}}
             </span>
         </h3>
-
         <div class="row">
             <div class="col-xs-6">
                 <div class="well">
@@ -62,7 +61,6 @@
                     </button>
                 </div>
             </div>
-
             <div class="col-xs-6">
                 <table class="table">
                     <thead>

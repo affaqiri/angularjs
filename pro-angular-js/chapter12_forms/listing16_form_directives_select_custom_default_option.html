@@ -2,9 +2,11 @@
 <html ng-app="exampleApp">
 <head>
     <title>Forms</title>
-    <script src="../common/angular.js"></script>
+
     <link href="../common/bootstrap.css" rel="stylesheet" />
     <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="../common/angular.js"></script>
     <script>
         angular.module("exampleApp", [])
             .controller("defaultCtrl", function ($scope) {
@@ -26,7 +28,6 @@
                     </select>
                 </div>
             </div>
-
             <div class="well">
                 <p>Selected: {{selectValue || 'None'}}</p>
             </div>
