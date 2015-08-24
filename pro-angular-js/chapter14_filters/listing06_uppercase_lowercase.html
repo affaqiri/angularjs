@@ -1,9 +1,11 @@
 <html ng-app="exampleApp">
 <head>
     <title>Filters</title>
-    <script src="angular.js"></script>
-    <link href="bootstrap.css" rel="stylesheet" />
-    <link href="bootstrap-theme.css" rel="stylesheet" />
+
+    <link href="../common/bootstrap.css" rel="stylesheet" />
+    <link href="../common/bootstrap-theme.css" rel="stylesheet" />
+
+    <script src="../common/angular.js"></script>
     <script>
         angular.module("exampleApp", [])
             .controller("defaultCtrl", function ($scope) {
@@ -45,7 +47,6 @@
                         <td>{{getExpiryDate(p.expiry) | date:"dd MMM yy"}}</td>
                         <td class="text-right">${{p.price | number:0 }}</td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
