@@ -7,7 +7,7 @@ angular.module("exampleApp", ["ngResource"])
         $httpProvider.defaults.headers.common["X-Parse-REST-API-Key"] = "MWkcmxZYjUlNT4I3uc3HV3yxDZGbm5w6c5YaePAl";
     })
 
-    .controller("defaultCtrl", function ($scope, $http,  , baseUrl) {
+    .controller("defaultCtrl", function ($scope, $http, $resource, baseUrl) {
 
         $scope.displayMode = "list";
         $scope.currentProduct = null;
@@ -114,7 +114,7 @@ angular.module("exampleApp", ["ngResource"])
          * on the object before calling it on the next line.
          *
          * This let us treat the cases related to a persisted modified product and a new non persisted
-         * product. The latter case does not need a call on the server.
+         * product.
          *
          * $get() restore the state of the object from the server.
          */
