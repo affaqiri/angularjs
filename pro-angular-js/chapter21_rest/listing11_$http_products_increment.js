@@ -102,4 +102,3 @@ angular.module("exampleApp", ["increment"])
 
         $scope.listProducts();
     });
-

@@ -54,4 +54,5 @@ angular.module("exampleApp", [])
          * To initiate the data upon arrival on the page.
          */
         $scope.listProducts();
+
 });

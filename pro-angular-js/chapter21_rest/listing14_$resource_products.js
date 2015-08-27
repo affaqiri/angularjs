@@ -7,14 +7,16 @@ angular.module("exampleApp", ["ngResource"])
         $httpProvider.defaults.headers.common["X-Parse-REST-API-Key"] = "MWkcmxZYjUlNT4I3uc3HV3yxDZGbm5w6c5YaePAl";
     })
 
-    .controller("defaultCtrl", function ($scope, $http, $resource, baseUrl) {
+    .controller("defaultCtrl", function ($scope, $http,  , baseUrl) {
 
         $scope.displayMode = "list";
         $scope.currentProduct = null;
     
         $scope.productsResource = $resource(
             baseUrl + ":id",
-            {id : "@objectId"},
+            {
+                id : "@objectId"
+            },
             {
                 query: {
                     method: "GET",
@@ -110,6 +112,9 @@ angular.module("exampleApp", ["ngResource"])
         /**
          * The test $scope.currentProduct.$get let us know if the method $get() is available (defined)
          * on the object before calling it on the next line.
+         *
+         * This let us treat the cases related to a persisted modified product and a new non persisted
+         * product. The latter case does not need a call on the server.
          *
          * $get() restore the state of the object from the server.
          */
